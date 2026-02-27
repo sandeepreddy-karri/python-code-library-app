@@ -4,8 +4,8 @@ services:
     image: sandeep1405/pythonapp:dbimage
     ports:
       - "3306:3306"
-      deploy:
-        replicas: 1
+    deploy:
+      replicas: 1
   
   auth:
     image: sandeep1405/pythonapp:authimage
