@@ -1,7 +1,6 @@
 services:
   db:
     image: sandeep1405/pythonapp:dbimage
-    container_name: db
     ports:
       - "3306:3306"
       deploy:
@@ -9,7 +8,6 @@ services:
   
   auth:
     image: sandeep1405/pythonapp:authimage
-    container_name: auth
     ports:
       - "5001:5001"
     deploy:
@@ -19,7 +17,6 @@ services:
   
   book:
     image: sandeep1405/pythonapp:bookimage
-    container_name: book
     ports:
       - "5002:5002"
     deploy:
@@ -29,7 +26,6 @@ services:
   
   borrow:
     image: sandeep1405/pythonapp:borrowimage
-    container_name: borrow
     ports:
       - "5003:5003"
     deploy:
@@ -39,7 +35,6 @@ services:
 
   app:
     image: sandeep1405/pythonapp:appimage
-    container_name: app
     ports:
       - "5000:5000"
     deploy:
