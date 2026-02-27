@@ -1,0 +1,50 @@
+services:
+  db:
+    image: sandeep1405/pythonapp:dbimage
+    container_name: db
+    ports:
+      - "3306:3306"
+      deploy:
+        replicas: 1
+  
+  auth:
+    image: sandeep1405/pythonapp:authimage
+    container_name: auth
+    ports:
+      - "5001:5001"
+    deploy:
+      replicas: 2
+      depends_on:
+        - db
+  
+  book:
+    image: sandeep1405/pythonapp:bookimage
+    container_name: book
+    ports:
+      - "5002:5002"
+    deploy:
+      replicas: 2
+      depends_on:
+        - db
+  
+  borrow:
+    image: sandeep1405/pythonapp:borrowimage
+    container_name: borrow
+    ports:
+      - "5003:5003"
+    deploy:
+      replicas: 2
+      depends_on:
+        - db
+
+  app:
+    image: sandeep1405/pythonapp:appimage
+    container_name: app
+    ports:
+      - "5000:5000"
+    deploy:
+      replicas: 2
+      depends_on:
+        - auth
+        - book
+        - borrow
